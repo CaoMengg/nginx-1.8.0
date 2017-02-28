@@ -279,7 +279,7 @@ ngx_execute_proc(ngx_cycle_t *cycle, void *data)
     exit(1);
 }
 
-
+//初始化系统信号, 设置信号处理函数
 ngx_int_t
 ngx_init_signals(ngx_log_t *log)
 {
@@ -449,6 +449,7 @@ ngx_signal_handler(int signo)
 }
 
 
+//子进程退出时调用, wait之后记录子进程退出状态
 static void
 ngx_process_get_status(void)
 {
